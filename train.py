@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--epochs', help='Number of epochs to train', default=25, type=int)
 parser.add_argument('--vec_size', help='Size of embedding vector', default=300, type=int)
 parser.add_argument('--alpha', help='Learning rate', default=0.025)
-parser.add_arguement('--algorithm', help="Choose distributed memory ('DM') or Distributed Bag of Words ('DBOW')", default='DM')
+parser.add_argument('--algorithm', help="Choose distributed memory ('DM') or Distributed Bag of Words ('DBOW')", default='DM')
 args = parser.parse_args()
 
 # Collect data
