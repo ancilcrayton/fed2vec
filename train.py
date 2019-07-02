@@ -55,7 +55,7 @@ for epoch in range(max_epochs):
     model.min_alpha = model.alpha
 
 # Saving model into results directory
-print('Saving model into results...)
+print('Saving model into results...')
 
 if os.path.isdir('results/') == False:
     os.system('mkdir results/')
