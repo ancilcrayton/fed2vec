@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 # Create data directory if it doesn't exist
 if os.path.isdir('data/') == False:
-	os.system('mkdir data/')
+    os.system('mkdir data/')
 
 # Function to scrape the speeches from the Fed website
 def scrape_speeches():
@@ -17,9 +17,9 @@ def scrape_speeches():
     # Create list of years from 2006 to now
     years = list(range(2006, current_year))
 
-	dfs = []
-	for year in years:
-    	# Choose the proper webpage to access
+    dfs = []
+    for year in years:
+        # Choose the proper webpage to access
     	print('Collecting data for year {}...'.format(year))
     	if year < 2011:
         	page = 'https://www.federalreserve.gov/newsevents/speech/{}speech.htm'.format(year)
