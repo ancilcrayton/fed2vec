@@ -3,6 +3,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from string import digits
+from gensim.models.doc2vec import TaggedDocument
+from nltk.tokenize import word_tokenize
 
 # Function to preprocess the text, lowercasing, removing digits and stopwords, and lemmatizing
 def text_preprocessing(raw_text):
