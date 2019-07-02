@@ -76,7 +76,7 @@ def scrape_speeches():
     data = pd.concat(dfs, ignore_index = True)
 	
     # Save the dataset
-    data.to_json('../data/fed_speeches.json', orient='records')
+    data.to_json('data/fed_speeches.json', orient='records')
 
 # Execute function from command line
 if __name__ == '__main__':
