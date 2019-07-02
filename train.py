@@ -36,7 +36,7 @@ cpus = multiprocessing.cpu_count()
 
 if args.algorithm == 'DM':
     model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =1, workers=cpus)
-elseif args.algorithm == 'DBOW':
+elif args.algorithm == 'DBOW':
     model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =0, workers=cpus)
 else:
     raise ValueError("Choose either 'DM' or 'DBOW' for the algorithm!")
