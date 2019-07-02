@@ -1,5 +1,7 @@
+import os
 import argparse
 import pandas as pd
+import multiprocessing
 from utils import text_preprocessing, tag_documents
 from gensim.models.doc2vec import Doc2Vec
 
@@ -24,3 +26,39 @@ print('Tagging documents...')
 tagged_docs = tag_documents(processed_speeches)
 print('done tagging.')
 
+# Model building
+print('Building model...')
+
+max_epochs = args.epochs
+vec_size = args.vec-size
+alpha = args.alpha
+cpus = multiprocessing.cpu_count()
+
+if args.algorithm == 'DM':
+    model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =1, workers=cpus)
+elseif args.algorithm == 'DBOW':
+    model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =0, workers=cpus)
+else:
+    raise ValueError("Choose either 'DM' or 'DBOW' for the algorithm!")
+
+# Build vocabulary
+model.build_vocab(tagged_docs)
+
+print('Training model...')
+for epoch in range(max_epochs):
+    print('Epoch: {}'.format(epoch))
+    # Train model
+    model.train(tagged_docs, total_examples = model.corpus_count, epochs = model.iter)
+    # Decrease learning rate
+    model.alpha -= 0.0002
+    # Fix the learning rate, no decay
+    model.min_alpha = model.alpha
+
+# Saving model into results directory
+print('Saving model into results...)
+
+if os.path.isdir('results/') == False:
+    os.system('mkdir results/')
+
+model.save("results/fed2vec.model")
+print('Model saved!')
