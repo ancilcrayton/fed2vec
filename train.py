@@ -11,4 +11,16 @@ parser.add_argument('--alpha', help='Learning rate', default=0.025)
 parser.add_arguement('--algorithm', help="Choose distributed memory ('DM') or Distributed Bag of Words ('DBOW')", default='DM')
 args = parser.parse_args()
 
+# Collect data
+raw_data = pd.read_json('data/fed_speeches.json', orient='records')
+
+# Preprocess speeches
+print('Preprocessing speeches...')
+processed_speeches = raw_data['Speech'].apply(lambda x: text_preprocessing(x))
+print('done preprocessing.')
+
+# Tagging documents
+print('Tagging documents...')
+tagged_docs = tag_documents(processed_speeches)
+print('done tagging.')
 
