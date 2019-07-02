@@ -23,7 +23,7 @@ def scrape_speeches():
     	print('Collecting data for year {}...'.format(year))
     	if year < 2011:
             page = 'https://www.federalreserve.gov/newsevents/speech/{}speech.htm'.format(year)
-    	if year >= 2011:
+    	else:
             page = 'https://www.federalreserve.gov/newsevents/speech/{}-speeches.htm'.format(year)
     	# Access page
     	page_response = requests.get(page)
