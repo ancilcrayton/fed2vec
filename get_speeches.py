@@ -14,8 +14,8 @@ def scrape_speeches():
     # Set the current year
     current_year = int(d.datetime.now().year)
     
-    # Create list of years from 2006 to now
-    years = list(range(2006, current_year+1))
+    # Create list of years from 2006 to last year
+    years = list(range(2006, current_year))
 
     dfs = []
     for year in years:
