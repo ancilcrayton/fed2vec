@@ -2,6 +2,7 @@ import os
 import argparse
 import pandas as pd
 import multiprocessing
+import swifter
 from utils import text_preprocessing, tag_documents
 from gensim.models.doc2vec import Doc2Vec
 
@@ -18,7 +19,7 @@ raw_data = pd.read_json('data/fed_speeches.json', orient='records')
 
 # Preprocess speeches
 print('Preprocessing speeches...')
-processed_speeches = raw_data['Speech'].apply(lambda x: text_preprocessing(x))
+processed_speeches = raw_data['Speech'].swifter.apply(lambda x: text_preprocessing(x)) # use swifter to parallelize the apply function
 print('done preprocessing.')
 
 # Tagging documents
