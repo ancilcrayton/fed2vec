@@ -31,12 +31,14 @@ print('done tagging.')
 # Model building
 print('Building model...')
 
+# Set parameters
 max_epochs = args.epochs
 window = args.window
 vec_size = args.vec_size
 alpha = args.alpha
 cpus = multiprocessing.cpu_count()
 
+# Choose the algorithm for training
 if args.algorithm == 'DM':
     model = Doc2Vec(size=vec_size, window=window, alpha=alpha, min_alpha=0.00025, min_count=1, dm =1, workers=cpus)
 elif args.algorithm == 'DBOW':
