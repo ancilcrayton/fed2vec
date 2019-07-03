@@ -44,7 +44,9 @@ else:
 
 # Build vocabulary
 model.build_vocab(tagged_docs)
+print('model built.')
 
+# Training the model
 print('Training model...')
 for epoch in range(max_epochs):
     print('Epoch: {}'.format(epoch))
@@ -54,6 +56,7 @@ for epoch in range(max_epochs):
     model.alpha -= 0.0002
     # Fix the learning rate, no decay
     model.min_alpha = model.alpha
+print('model trained.')
 
 # Saving model into results directory
 print('Saving model into results...')
