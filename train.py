@@ -10,6 +10,7 @@ from gensim.models.doc2vec import Doc2Vec
 parser = argparse.ArgumentParser()
 parser.add_argument('--epochs', help='Number of epochs to train', default=25, type=int)
 parser.add_argument('--vec_size', help='Size of embedding vector', default=300, type=int)
+parser.add_argument('--window', help='Context window size for training', default=2, type=int)
 parser.add_argument('--alpha', help='Learning rate', default=0.025)
 parser.add_argument('--algorithm', help="Choose distributed memory ('DM') or Distributed Bag of Words ('DBOW')", default='DM')
 args = parser.parse_args()
@@ -31,14 +32,15 @@ print('done tagging.')
 print('Building model...')
 
 max_epochs = args.epochs
+window = args.window
 vec_size = args.vec_size
 alpha = args.alpha
 cpus = multiprocessing.cpu_count()
 
 if args.algorithm == 'DM':
-    model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =1, workers=cpus)
+    model = Doc2Vec(size=vec_size, window=window, alpha=alpha, min_alpha=0.00025, min_count=1, dm =1, workers=cpus)
 elif args.algorithm == 'DBOW':
-    model = Doc2Vec(size=vec_size, alpha=alpha, min_alpha=0.00025, min_count=1, dm =0, workers=cpus)
+    model = Doc2Vec(size=vec_size, window=window, alpha=alpha, min_alpha=0.00025, min_count=1, dm =0, workers=cpus)
 else:
     raise ValueError("Choose either 'DM' or 'DBOW' for the algorithm!")
 
