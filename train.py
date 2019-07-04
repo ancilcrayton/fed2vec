@@ -19,7 +19,7 @@ args = parser.parse_args()
 raw_data = pd.read_json('data/fed_speeches.json', orient='records')
 
 # Preprocess speeches
-print('Preprocessing speeches...')
+print('Preprocessing {} speeches...'.format(len(raw_data.index))
 processed_speeches = raw_data['Speech'].swifter.apply(lambda x: text_preprocessing(x)) # use swifter to parallelize the apply function
 print('done preprocessing.')
 
