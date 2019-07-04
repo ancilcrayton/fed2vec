@@ -24,12 +24,20 @@ $ python train.py
 ```
 
 The `train.py` script has five different arguments that can passed in:
+
 `--epochs`: The number of epochs for training (int, default=25)
+
 `--vec_size`: The size of the embedding vectors (int, default=300)
+
 `--window`: The context window size for the training of the word embeddings (int, default=2)
+
 `--alpha`: The learning rate for gradient descent (float, default=0.025)
+
 `--algorithm`: The algorithm for training, either distributed memomory ('DM') or distributed bag of words ('DBOW') (string, default='DM')
 
 An example of training with 10 epochs, embedding size of 20, a window of 5, learning rate of 0.2, and the distributed bag of words algorithm:
-```python train.py --epochs 10 --vec_size 20 --window 5 --alpha 0.2 --algorithm 'DBOW'```
+
+```
+$ python train.py --epochs 10 --vec_size 20 --window 5 --alpha 0.2 --algorithm 'DBOW'
+```
 
