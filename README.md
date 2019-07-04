@@ -11,7 +11,7 @@ In this project, I present Fed2Vec, which is a Doc2Vec model trained on speeches
 This project features webscraping, deep learning for NLP, dimensionality reduction, and visualization.
 
 ## Usage
-Dependecies should be installed by running the command `pip install -r requirements.txt`.
+This project was developed in Python 3.6 and dependecies should be installed by running the command `pip install -r requirements.txt`.
 
 First, collect the speeches, which is scraped from the [Federal Reserve Board of Governors](https://www.federalreserve.gov/) website by running the `get_speeches.py` script:
 ```
