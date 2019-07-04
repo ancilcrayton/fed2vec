@@ -43,3 +43,5 @@ $ python train.py --epochs 10 --vec_size 20 --window 5 --alpha 0.2 --algorithm '
 
 Finally, after the model is trained, the saved Fed2vec model will be saved in the `results/` directory as `fed2vec.model`.
 
+To show simple examples of exploring the reuslts of the model, I include a notebook in the `notebooks/` directory named `visualize_embeddings.ipynb`.
+
