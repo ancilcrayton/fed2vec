@@ -41,7 +41,7 @@ An example of training with 10 epochs, embedding size of 20, a window of 5, lear
 $ python train.py --epochs 10 --vec_size 20 --window 5 --alpha 0.2 --algorithm 'DBOW'
 ```
 
-Finally, after the model is trained, the saved Fed2vec model will be saved in the `results/` directory as `fed2vec.model`.
+Finally, after the model is trained, the saved Fed2Vec model will be saved in the `results/` directory as `fed2vec.model`.
 
-To show simple examples of exploring the reuslts of the model, I include a notebook in the `notebooks/` directory named `visualize_embeddings.ipynb`.
+To show simple examples of exploring the results of the model, I include a notebook in the `notebooks/` directory named `visualize_embeddings.ipynb`.
 
