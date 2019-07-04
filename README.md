@@ -23,7 +23,7 @@ Second, perform text preprocessing, document tagging, and train the model by run
 $ python train.py
 ```
 
-The `train.py` script has five different arguments that can passed in:
+The `train.py` script has five different arguments that can be passed in:
 
 `--epochs`: The number of epochs for training (int, default=25)
 
