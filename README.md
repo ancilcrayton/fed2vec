@@ -33,7 +33,7 @@ The `train.py` script has five different arguments that can be passed in:
 
 `--alpha`: The learning rate for gradient descent (float, default=0.025)
 
-`--algorithm`: The algorithm for training, either distributed memomory ('DM') or distributed bag of words ('DBOW') (string, default='DM')
+`--algorithm`: The algorithm for training, either distributed memory ('DM') or distributed bag of words ('DBOW') (string, default='DM')
 
 An example of training with 10 epochs, embedding size of 20, a window of 5, learning rate of 0.2, and the distributed bag of words algorithm:
 
